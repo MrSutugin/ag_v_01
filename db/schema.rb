@@ -51,53 +51,34 @@ ActiveRecord::Schema[7.0].define(version: 0) do
     t.index ["email"], name: "index_accounts_on_email", unique: true, where: "(status = ANY (ARRAY[1, 2]))"
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string "country_code"
-    t.string "country_name"
-    t.string "country_name_en"
-    t.decimal "country_geo_lat", precision: 15, scale: 10
-    t.decimal "country_geo_lon", precision: 15, scale: 10
-    t.string "country_region_full_address"
-    t.string "country_region_name"
-    t.string "country_region_fias_type"
-    t.string "country_region_okato"
-    t.string "country_region_oktmo"
-    t.decimal "country_region_geo_lat", precision: 15, scale: 10
-    t.decimal "country_region_geo_lon", precision: 15, scale: 10
-    t.string "country_region_peoples"
-    t.string "country_region_timezone"
-    t.string "country_region_wiki"
-    t.string "country_region_locality_full_address"
-    t.string "country_region_locality_name"
-    t.string "country_region_locality_fias"
-    t.string "country_region_locality_fias_type"
-    t.string "country_region_locality_type"
-    t.string "country_region_locality_okato"
-    t.string "country_region_locality_oktmo"
-    t.decimal "country_region_locality_geo_lat", precision: 15, scale: 10
-    t.decimal "country_region_locality_geo_lon", precision: 15, scale: 10
-    t.string "country_region_locality_peoples"
-    t.string "country_region_locality_timezone"
-    t.string "country_region_locality_wiki"
-    t.string "located_type", null: false
-    t.bigint "located_id", null: false
+  create_table "activities", force: :cascade do |t|
+    t.string "message"
+    t.string "trackable_type", null: false
+    t.bigint "trackable_id", null: false
     t.bigint "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id"], name: "index_locations_on_account_id"
-    t.index ["located_type", "located_id"], name: "index_locations_on_located"
+    t.index ["account_id"], name: "index_activities_on_account_id"
+    t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable"
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.string "phone_number"
+    t.string "phone_verification_code"
+    t.boolean "phone_is_verified", default: false
+    t.bigint "account_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_phones_on_account_id"
   end
 
   create_table "profiles", force: :cascade do |t|
     t.string "username", null: false
-    t.string "firstname", null: false
-    t.string "lastname", null: false
+    t.string "firstname"
+    t.string "lastname"
     t.integer "gender", default: 0
     t.text "bio"
     t.date "birthdate"
-    t.string "phone_number"
-    t.string "phone_verification_code"
-    t.boolean "phone_is_verified", default: false
     t.bigint "account_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -109,6 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 0) do
   add_foreign_key "account_password_reset_keys", "accounts", column: "id"
   add_foreign_key "account_remember_keys", "accounts", column: "id"
   add_foreign_key "account_verification_keys", "accounts", column: "id"
-  add_foreign_key "locations", "accounts"
+  add_foreign_key "activities", "accounts"
+  add_foreign_key "phones", "accounts"
   add_foreign_key "profiles", "accounts"
 end

@@ -27,10 +27,13 @@ class RodauthMain < Rodauth::Rails::Auth
     account_password_hash_column :password_hash
 
     # Установите пароль при создании учетной записи, а не при проверке.
-    verify_account_set_password? false
+    verify_account_set_password? true
 
     # Перенаправление обратно в первоначально запрошенное местоположение после аутентификации.
     login_return_to_requested_location? true
+    
+    # Автологин
+    create_account_autologin? false
     # two_factor_auth_return_to_requested_location? true # if using MFA
 
     # Автоматический вход пользователя после сброса пароля.
@@ -109,11 +112,20 @@ class RodauthMain < Rodauth::Rails::Auth
         account_id: account_id,
         username: SecureRandom.alphanumeric(20)
       )
+      Phone.create!(
+        account_id: account_id
+      )
+      Activity.create!(
+        account_id: account_id,
+        trackable: Profile.find_by(account_id: account_id),
+        message: 'Профиль успешно создан'
+      )
     end
 
     # Выполните дополнительную очистку после закрытия учетной записи.
     after_close_account do
       Profile.find_by!(account_id: account_id).destroy
+      Phone.find_by!(account_id: account_id).destroy
     end
 
     # ==> Перенаправления

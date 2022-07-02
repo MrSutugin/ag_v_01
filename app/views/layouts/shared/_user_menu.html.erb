@@ -1,4 +1,5 @@
 <% if rodauth.logged_in? %>
+  
   <%= current_account.email %>
   <%= link_to "Change password", rodauth.change_password_path %>
   <%= link_to "Change email", rodauth.change_login_path %>
