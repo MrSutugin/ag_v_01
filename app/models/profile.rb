@@ -1,4 +1,4 @@
 class Profile < ApplicationRecord
   belongs_to :account
-  has_many :activities, as: :trackable, dependent: :destroy
+  has_many :activities, as: :trackable
 end

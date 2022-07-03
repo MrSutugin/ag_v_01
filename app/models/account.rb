@@ -4,5 +4,4 @@ class Account < ApplicationRecord
   has_one  :profile
   has_one  :phone
   has_many :activities
-
 end

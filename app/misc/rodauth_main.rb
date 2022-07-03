@@ -1,15 +1,17 @@
 class RodauthMain < Rodauth::Rails::Auth
+  
   configure do
     # Список загруженных функций проверки подлинности.
-    enable :create_account, :verify_account, :verify_account_grace_period,
-           :login, :logout, :remember, :email_auth,
-           :reset_password, :change_password, :change_password_notify,
-           :change_login, :verify_login_change, :close_account
+    enable :create_account, :verify_account,      :verify_account_grace_period,
+           :login, :logout, :remember,            :email_auth,
+           :reset_password, :change_password,     :change_password_notify,
+           :change_login,   :verify_login_change, :close_account
 
     # См. документацию Rodauth для получения списка доступных параметров конфигурации:
     # http://rodauth.jeremyevans.net/documentation.html
 
     # ==> Общий
+    enable :i18n
     # Секретный ключ, используемый для хеширования общедоступных токенов для различных функций.
     # По умолчанию Rails `secret_key_base`, но вы можете использовать свой собственный секретный ключ.
     # hmac_secret "e7c8d1933dafad79441fa8edc9223ddc01186931120fdf808ad2ffab037573a3511fbd53c083608a9c36103b0523bf8d0a092d8557abd59e146163103bd4ed0d"
@@ -31,7 +33,7 @@ class RodauthMain < Rodauth::Rails::Auth
 
     # Перенаправление обратно в первоначально запрошенное местоположение после аутентификации.
     login_return_to_requested_location? true
-    
+
     # Автологин
     create_account_autologin? false
     # two_factor_auth_return_to_requested_location? true # if using MFA
@@ -126,6 +128,7 @@ class RodauthMain < Rodauth::Rails::Auth
     after_close_account do
       Profile.find_by!(account_id: account_id).destroy
       Phone.find_by!(account_id: account_id).destroy
+      Activity.find_by!(account_id: account_id).destroy
     end
 
     # ==> Перенаправления
@@ -140,7 +143,7 @@ class RodauthMain < Rodauth::Rails::Auth
 
     # Убедитесь, что запрос входа в систему следует за изменениями маршрута входа.
     require_login_redirect { login_path }
-    
+
     # ==> Сроки
     # Изменить сроки по умолчанию для некоторых действий.
     # verify_account_grace_period 3.days
@@ -148,7 +151,8 @@ class RodauthMain < Rodauth::Rails::Auth
     # verify_login_change_deadline_interval Hash[days: 2]
     # remember_deadline_interval Hash[days: 30]
 
-    login_label 'Почта'
+    login_label 'Email'
+    password_label 'Пароль'
     create_account_route 'registration'
   end
 end
