@@ -1,0 +1,24 @@
+<%= form_with(model: brand) do |form| %>
+  <div class="row g-4">
+    <% if brand.errors.any? %>
+      <div class="col-12">
+        <div class="alert alert-danger mb-0">
+          <% brand.errors.each do |error| %>
+            <p class="mb-0"><%= error.full_message %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-12">
+      <%= form.label :name, 'Название', class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+    <div class="col-12">
+      <%= form.label :bio, 'Описание', class: 'form-label' %>
+      <%= form.text_area :bio, class: 'form-control' %>
+    </div>
+    <div class="col-12 text-end">
+      <%= form.submit 'Создать', class: 'btn btn-primary mb-0' %>
+    </div>
+  </div>
+<% end %>

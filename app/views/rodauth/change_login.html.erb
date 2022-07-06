@@ -1,24 +1,60 @@
-<%= form_with url: rodauth.change_login_path, method: :post, data: { turbo: false } do |form| %>
-  <div class="mb-3 input-group-lg">
-    <%= form.label "login", rodauth.login_label, class: "form-label" %>
-    <%= form.email_field rodauth.login_param, value: params[rodauth.login_param], id: "login", autocomplete: "email", required: true, class: "form-control #{"is-invalid" if rodauth.field_error(rodauth.login_param)}", aria: ({ invalid: true, describedby: "login_error_message" } if rodauth.field_error(rodauth.login_param)) %>
-    <%= content_tag(:span, rodauth.field_error(rodauth.login_param), class: "invalid-feedback", id: "login_error_message") if rodauth.field_error(rodauth.login_param) %>
-  </div>
-  <% if rodauth.require_login_confirmation? %>
-    <div class="mb-3 input-group-lg">
-      <%= form.label "login-confirm", rodauth.login_confirm_label, class: "form-label" %>
-      <%= form.email_field rodauth.login_confirm_param, value: params[rodauth.login_confirm_param], id: "login-confirm", autocomplete: "email", required: true, class: "form-control #{"is-invalid" if rodauth.field_error(rodauth.login_confirm_param)}", aria: ({ invalid: true, describedby: "login-confirm_error_message" } if rodauth.field_error(rodauth.login_confirm_param)) %>
-      <%= content_tag(:span, rodauth.field_error(rodauth.login_confirm_param), class: "invalid-feedback", id: "login-confirm_error_message") if rodauth.field_error(rodauth.login_confirm_param) %>
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-5">
+        <div class="card w-100">
+          <div class="card-body">
+            <ul class="nav nav-tabs nav-pills nav-pills-soft flex-column fw-bold gap-2 border-0">
+              <li class="nav-item" data-bs-dismiss="offcanvas">
+                <%= link_to 'Изменить email', rodauth.change_login_path, class: 'nav-link d-flex mb-0 active' %>
+              </li>
+              <li class="nav-item" data-bs-dismiss="offcanvas">
+                <%= link_to 'Изменить пароль', rodauth.change_password_path, class: 'nav-link d-flex mb-0' %>
+              </li>
+              <li class="nav-item" data-bs-dismiss="offcanvas">
+                <%= link_to 'Закрыть аккаунт', rodauth.close_account_path, class: 'nav-link d-flex mb-0' %>
+              </li>
+              <li class="nav-item" data-bs-dismiss="offcanvas">
+                <%= link_to 'Выйти', rodauth.logout_path, class: 'nav-link d-flex mb-0' %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 vstack gap-4">
+        <div class="card">
+          <div class="card-header border-0 pb-0">
+            <h4 class="card-title h5">Изменение email</h4>
+            <p class="mb-0">Вы действительно хотите изменить email?</p>
+          </div>
+          <div class="card-body">
+            <%= form_with url: rodauth.change_login_path, method: :post, data: { turbo: false } do |form| %>
+              <div class="mb-3">
+                <%= form.label "login", rodauth.login_label, class: "form-label" %>
+                <%= form.email_field rodauth.login_param, value: params[rodauth.login_param], id: "login", autocomplete: "email", required: true, class: "form-control #{"is-invalid" if rodauth.field_error(rodauth.login_param)}", aria: ({ invalid: true, describedby: "login_error_message" } if rodauth.field_error(rodauth.login_param)) %>
+                <%= content_tag(:span, rodauth.field_error(rodauth.login_param), class: "invalid-feedback", id: "login_error_message") if rodauth.field_error(rodauth.login_param) %>
+              </div>
+              <% if rodauth.require_login_confirmation? %>
+                <div class="mb-3">
+                  <%= form.label "login-confirm", rodauth.login_confirm_label, class: "form-label" %>
+                  <%= form.email_field rodauth.login_confirm_param, value: params[rodauth.login_confirm_param], id: "login-confirm", autocomplete: "email", required: true, class: "form-control #{"is-invalid" if rodauth.field_error(rodauth.login_confirm_param)}", aria: ({ invalid: true, describedby: "login-confirm_error_message" } if rodauth.field_error(rodauth.login_confirm_param)) %>
+                  <%= content_tag(:span, rodauth.field_error(rodauth.login_confirm_param), class: "invalid-feedback", id: "login-confirm_error_message") if rodauth.field_error(rodauth.login_confirm_param) %>
+                </div>
+              <% end %>
+              <% if rodauth.change_login_requires_password? %>
+                <div class="mb-3">
+                  <%= form.label "password", rodauth.password_label, class: "form-label" %>
+                  <%= form.password_field rodauth.password_param, value: "", id: "password", autocomplete: rodauth.password_field_autocomplete_value, required: true, class: "form-control #{"is-invalid" if rodauth.field_error(rodauth.password_param)}", aria: ({ invalid: true, describedby: "password_error_message" } if rodauth.field_error(rodauth.password_param)) %>
+                  <%= content_tag(:span, rodauth.field_error(rodauth.password_param), class: "invalid-feedback", id: "password_error_message") if rodauth.field_error(rodauth.password_param) %>
+                </div>
+              <% end %>
+              <div class="mb-0">
+                <%= form.submit rodauth.change_login_button, class: "btn btn-primary w-100" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-  <% if rodauth.change_login_requires_password? %>
-    <div class="mb-3 input-group-lg">
-      <%= form.label "password", rodauth.password_label, class: "form-label" %>
-      <%= form.password_field rodauth.password_param, value: "", id: "password", autocomplete: rodauth.password_field_autocomplete_value, required: true, class: "form-control #{"is-invalid" if rodauth.field_error(rodauth.password_param)}", aria: ({ invalid: true, describedby: "password_error_message" } if rodauth.field_error(rodauth.password_param)) %>
-      <%= content_tag(:span, rodauth.field_error(rodauth.password_param), class: "invalid-feedback", id: "password_error_message") if rodauth.field_error(rodauth.password_param) %>
-    </div>
-  <% end %>
-  <div class="mb-3 input-group-lg">
-    <%= form.submit rodauth.change_login_button, class: "btn btn-lg btn-primary w-100" %>
   </div>
-<% end %>
+</section>

@@ -1,2 +1,186 @@
-<h1>Static#index</h1>
-<p>Find me in app/views/static/index.html.erb</p>
+<section class="pt-5 pb-0 position-relative">
+  <div class="container">
+    <div class="row text-center position-relative z-index-1">
+      <div class="col-lg-7 mx-auto">
+        <h1 class="">Единая платформа электронных СНТ</h1>
+        <p class="lead">Регистрируйте ваше СНТ на платформе и пользуйтесь функциональным сайтом бесплатно </p>
+        <div class="d-sm-flex justify-content-center">
+          <button class="btn btn-primary">Зарегистрироваться</button>
+          <div class="mt-2 mt-sm-0 ms-sm-3">
+            <div class="hstack justify-content-center justify-content-sm-start gap-1">
+              <div><i class="fa-solid fa-star text-warning"></i></div>
+              <div><i class="fa-solid fa-star text-warning"></i></div>
+              <div><i class="fa-solid fa-star text-warning"></i></div>
+              <div><i class="fa-solid fa-star text-warning"></i></div>
+              <div><i class="fa-solid fa-star-half-stroke text-warning"></i></div>
+            </div>
+            <i>"Не могу поверить, что это бесплатно!"</i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row g-0 align-items-center mt-2 position-relative z-index-1">
+      <div class="col-lg-4">
+        <div class="iphone-x iphone-x-small" style="background: url(<%= asset_path('mockup/app-placeholder2.jpg')%>); background-size: 100%;">
+          <i></i>
+          <b></b>
+        </div>
+      </div>
+      <div class="col-lg-8">
+        <div class="mac_container ">
+          <div class="mac_scaler">
+            <div class="mac_holder">
+              <div class="mac_screen">
+                <div class="mac_camera"></div>
+                <div class="mac_screen_content" style="background:url(<%= asset_path('mockup/mac-placeholder.jpg')%>); background-size: 100%;">
+                </div>
+              </div>
+              <div class="mac_bottom">
+                <div class="mac_bottom_top_half">
+                  <div class="mac_thumb_space"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="position-absolute top-0 end-0 mt-5 pt-5">
+    <img class="h-300px blur-9 mt-5 pt-5" src=" <%= asset_path('elements/07.svg')%>" alt="">
+  </div>
+  <div class="position-absolute top-0 start-0 mt-n5 pt-n5">
+    <img class="h-300px blur-9" src="<%= asset_path('elements/01.svg')%>" alt="">
+  </div>
+  <div class="position-absolute top-50 start-50 translate-middle">
+    <img class="h-300px blur-9" src="<%= asset_path('elements/04.svg')%>" alt="">
+  </div>
+</section>
+<section class="py-4 py-sm-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-12 text-center mb-4">
+        <h2 class="h1">Жизнь садоводов должна быть лучше</h2>
+        <h4>Все мечтают о своем домике с садом </h4>
+        <p>
+          Но в мечтах точно не встречаются отчетность, бухгалтерия, участие в межевании, 
+          <br> юридические вопросы и другие особенности загородной жизни.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-4 py-sm-5">
+  <div class="container">
+    <div class="row g-4 g-lg-5 align-items-center">
+      <div class="col-lg-4">
+        <h2 class="h2">Онлайн-решение для СНТ</h2>
+        <p class="mb-4">С такой целью была образована платформа</p>
+        <a class="btn btn-dark" href="#">Зарегистрироваться</a>
+      </div>
+      <div class="col-lg-8">
+        <div class="card card-body bg-mode shadow-none border-0 p-4 p-sm-5 pb-sm-0 overflow-hidden">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <img class="h-50px" src="<%= asset_path('elements/05.svg')%>" alt="">
+              <h4 class="mt-5">Единая удобная экосистема</h4>
+              <p class="mb-0">Мы хотим, чтобы садоводы занимались своим любимым делом, и предоставляем им сервисы для этого.</p>
+            </div>
+            <div class="col-md-6 text-end">
+              <div class="iphone-x iphone-x-small iphone-x-half mb-n5 mt-0" style="background: url(<%= asset_path('mockup/app-placeholder3.jpg')%>); background-size: 100%;">
+                <i></i>
+                <b></b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-body bg-mode shadow-none border-0 p-4 p-lg-5">
+          <div>
+            <img class="h-50px" src="<%= asset_path('elements/03.svg')%>" alt="">
+          </div>
+          <h4 class="mt-4">Ведение бухгалтерии</h4>
+          <p class="mb-0">Передайте бухгалтерию на аутсорс - это сэкономит от 15000 рублей в месяц на зарплате бухгалтера.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-body bg-mode shadow-none border-0 p-4 p-lg-5">
+          <div>
+            <img class="h-50px" src="<%= asset_path('elements/09.svg')%>" alt="">
+          </div>
+          <h4 class="mt-4">Помощь в межевании</h4>
+          <p class="mb-0">Утвердить межевание в Росреестре необходимо до 2026 года. Сопровождаем кадастровые работы в рамках государственной программы.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-body bg-mode shadow-none border-0 p-4 p-lg-5">
+          <div>
+            <img class="h-50px" src="<%= asset_path('elements/06.svg')%>" alt="">
+          </div>
+          <h4 class="mt-4">Юридическая поддержка</h4>
+          <p class="mb-0">Консультации и оказание квалифицированной помощи от специалистов по вопросам земельных участков и работе с должниками.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card card-body bg-mode shadow-none border-0 p-4 p-lg-5">
+          <div>
+            <img class="h-50px" src="<%= asset_path('elements/04.svg')%>" alt="">
+          </div>
+          <h4 class="mt-4">Онлайн голосование</h4>
+          <p class="mb-0">Онлайн голосование для общего собрания СНТ - это удобно и полезно для Вашего здоровья. </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="py-4 py-sm-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-10 ms-auto">
+        <div class="row g-4 align-items-center">
+          <div class="col-md-5 col-lg-5 position-relative">
+            <img class="rounded-circle" src="assets/images/post/4by3/01.jpg" alt="">
+            <div class="position-absolute top-50 start-0 translate-middle d-none d-lg-block">
+              <div class="bg-mode border p-3 rounded-3 rounded-start-top-0 d-flex align-items-center mb-3">
+                <div class="avatar avatar-xs me-3">
+                  <a href="#!"> <img class="avatar-img rounded-circle" src="https://i.pravatar.cc/301" alt=""> </a>
+                </div>
+                <div class="d-flex">
+                  <h6 class="mb-0 ">Что то тут </h6>
+                  <span class="ms-2">🎂</span>
+                </div>
+              </div>
+              <div class="bg-mode border p-3 rounded-3 rounded-start-top-0 d-flex align-items-center mb-3">
+                <div class="avatar avatar-xs me-3">
+                  <a href="#!"> <img class="avatar-img rounded-circle" src="https://i.pravatar.cc/302" alt=""> </a>
+                </div>
+                <div class="d-flex">
+                  <h6 class="mb-0 ">Что то тут </h6>
+                  <span class="ms-2">🤘</span>
+                </div>
+              </div>
+              <div class="bg-mode border p-3 rounded-3 rounded-start-top-0 d-flex align-items-center mb-3">
+                <div class="avatar avatar-xs me-3">
+                  <a href="#!"> <img class="avatar-img rounded-circle" src="https://i.pravatar.cc/303" alt=""> </a>
+                </div>
+                <div class="d-flex">
+                  <h6 class="mb-0 ">Что то тут </h6>
+                  <span class="ms-2">🎂</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="ms-4">
+              <h2 class="h1">Начинай сейчас</h2>
+              <p class="lead mb-4">Наслаждайтесь специальными интерактивными функциями, которые помогут вам подняться в рейтинге и расширить свою аудиторию!</p>
+              <a class="btn btn-primary" href="#"> Начать </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

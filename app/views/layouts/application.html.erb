@@ -16,14 +16,23 @@
     <%= stylesheet_link_tag 'dropzone', 'data-turbo-track': 'reload' %>
     <%= stylesheet_link_tag 'flatpickr', 'data-turbo-track': 'reload' %>
     <%= stylesheet_link_tag 'plyr', 'data-turbo-track': 'reload' %>
-    <%= stylesheet_link_tag 'style', 'data-turbo-track': 'reload', id: 'style-switch' %>
+    <%= stylesheet_link_tag 'style', 'data-turbo-track': 'reload'%>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag 'bootstrap.bundle.min', 'data-turbo-track': 'reload' %>
   </head>
   <body>
-    <%= render 'layouts/shared/system_notification' %>
-    <hr>
-    <%= render 'layouts/shared/user_menu' %>
-    <hr>
-    <%= yield %>
+    <%= render 'layouts/shared/header' %>
+    <main>
+      <%= render 'layouts/shared/system_notification' %>
+      <%= yield %>
+    </main>
+    <%= javascript_include_tag 'tiny-slider', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'OverlayScrollbars.min', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'choices.min', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'glightbox.min', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'flatpickr.min', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'plyr', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'dropzone.min', 'data-turbo-track': 'reload' %>
+    <%= javascript_include_tag 'functions', 'data-turbo-track': 'reload' %>
   </body>
 </html>

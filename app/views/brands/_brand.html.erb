@@ -1,0 +1,57 @@
+<div id="<%= dom_id brand %>">
+  <div class="card-body">
+    <div class="text-center">
+      <div class="avatar avatar-xxl mb-3">
+        <%= link_to  dashboard_path  do %>
+          <%= image_tag 'avatar/avatar.png', class: 'avatar-img rounded-circle border border-3' %>
+        <% end %>
+      </div>
+      <h4 class="mb-0 h5 mb-3 text-truncate">
+        <%= link_to brand_path(brand) do %>
+          <%= brand.name %>
+        <% end %>
+      </h4>
+      <div class="text-truncate">
+        <small>
+          <i class="bi bi-geo-alt me-1"></i>
+          Россия, Москва
+        </small>
+      </div>
+      <div class="hstack  justify-content-between mt-3">
+        <div class="text-center w-100 text-truncate">
+          <h6 class="mb-0">0</h6>
+          <small>публикаций</small>
+        </div>
+        <div class="vr"></div>
+        <div class="text-center w-100 text-truncate">
+          <h6 class="mb-0">0</h6>
+          <small>участников</small>
+        </div>
+        <div class="vr"></div>
+        <div class="text-center w-100 text-truncate">
+          <h6 class="mb-0">0</h6>
+          <small>подписчиков</small>
+        </div>
+      </div>
+      <ul class="avatar-group list-unstyled align-items-center justify-content-center mb-0 mt-3">
+        <li class="avatar avatar-xs">
+          <img class="avatar-img rounded-circle" src="https://i.pravatar.cc/301" alt="avatar">
+        </li>
+        <li class="avatar avatar-xs">
+          <img class="avatar-img rounded-circle" src="https://i.pravatar.cc/302" alt="avatar">
+        </li>
+        <li class="avatar avatar-xs">
+          <img class="avatar-img rounded-circle" src="https://i.pravatar.cc/303" alt="avatar">
+        </li>
+        <li class="avatar avatar-xs">
+          <img class="avatar-img rounded-circle" src="https://i.pravatar.cc/304" alt="avatar">
+        </li>
+        <li class="avatar avatar-xs">
+          <div class="avatar-img rounded-circle bg-primary">
+            <span class="smaller text-white position-absolute top-50 start-50 translate-middle">+22</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ .container {
+  max-width: 960px!important;
+}
+.vr{
+  width: 2px!important;
+}

@@ -57,7 +57,7 @@ ru:
     login_does_not_meet_requirements_message: неверный логин, не соответствует требованиям
     login_error_flash: Произошла ошибка при входе
     login_form_footer_links_heading: <h2 class="rodauth-login-form-footer-links-heading">Другие параметры</h2>
-    login_label: Авторизоваться
+    login_label: Email
     login_lockout_error_flash: Эта учетная запись в настоящее время заблокирована, и вы не можете войти в нее.
     login_not_valid_email_message: Недействительный адрес электронной почты
     login_notice_flash: Вы вошли в систему
@@ -66,11 +66,11 @@ ru:
     login_too_many_bytes_message: максимум %{login_maximum_bytes} байт
     login_too_short_message: минимум %{login_minimum_length} символов
     logins_do_not_match_message: логины не совпадают
-    logout_button: Logout
+    logout_button: Выйти
     logout_notice_flash: Вы вышли из системы
     logout_page_title: Выйти
     multi_phase_login_page_title: Авторизоваться
-    need_password_notice_flash: Логин распознан, пожалуйста, введите свой пароль
+    need_password_notice_flash: Email распознан, пожалуйста, введите свой пароль
     new_password_label: Новый пароль
     no_current_sms_code_error_flash: Нет текущего SMS-кода для этой учетной записи
     no_matching_email_auth_key_error_flash: 'При входе произошла ошибка: неверный ключ аутентификации электронной почты'

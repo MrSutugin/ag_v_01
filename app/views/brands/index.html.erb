@@ -1,0 +1,51 @@
+<section class="py-5">
+  <div class="container">
+    <div class="card mb-4">
+      <div class="card-body">
+        <form class="row g-3">
+          <div class="col-md-5">
+            <input class="form-control" type="text" placeholder="Название">
+          </div>
+          <div class="col-md-5">
+            <select class="form-select js-choice">
+              <option value="PV">Регион</option>
+            </select>
+          </div>
+          <div class="col-md-2 d-grid">
+            <a class="btn btn-primary" href="#">Найти</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <% if @brands.count > 0 %>
+      <div class="row g-4">
+        <% @brands.each do |brand| %>
+          <div class="col-lg-4" id="brands">
+            <div class="card overflow-hidden mb-4">
+              <%= render brand %>
+              <div class="card-footer py-2">
+                <div class="row">
+                  <div class="col-12">
+                    <%= link_to brand_path(brand), class: 'btn btn-primary-soft w-100' do %>
+                      Подробнее
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="card">
+        <div class="card-body">
+          <div class="my-4 py-4 text-center">
+            <i class="display-1 text-muted bi bi-people"> </i>
+            <h4 class="mb-3 text-body h6">Ничего не найдено</h4>
+            <%= link_to  'Создать', new_brand_path, class: 'btn btn-primary-soft btn-sm' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

@@ -1,8 +1,7 @@
 <% unless rodauth.login_form_footer_links.empty? %>
-  <%== rodauth.login_form_footer_links_heading %>
-  <ul>
+  <ul class="list-group list-group-flush mt-3">
     <% rodauth.login_form_footer_links.sort.each do |_, link, text| %>
-      <li><%= link_to text, link %></li>
+      <li class="list-group-item px-0"><%= link_to text, link %></li>
     <% end %>
   </ul>
 <% end %>

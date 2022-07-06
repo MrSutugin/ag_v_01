@@ -1,13 +1,49 @@
-<%= form_with url: rodauth.logout_path, method: :post, data: { turbo: false } do |form| %>
-  <% if rodauth.features.include?(:active_sessions) %>
-    <div class="mb-3 input-group-lg">
-      <div class="form-check">
-        <%= form.check_box rodauth.global_logout_param, id: "global-logout", class: "form-check-input" %>
-        <%= form.label "global-logout", rodauth.global_logout_label, class: "form-check-label" %>
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-5">
+        <div class="card w-100">
+          <div class="card-body">
+            <ul class="nav nav-tabs nav-pills nav-pills-soft flex-column fw-bold gap-2 border-0">
+              <li class="nav-item">
+                <%= link_to 'Изменить email', rodauth.change_login_path, class: 'nav-link d-flex mb-0' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Изменить пароль', rodauth.change_password_path, class: 'nav-link d-flex mb-0' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Закрыть аккаунт', rodauth.close_account_path, class: 'nav-link d-flex mb-0 ' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Выйти', rodauth.logout_path, class: 'nav-link d-flex mb-0 active' %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 vstack gap-4">
+        <div class="card">
+          <div class="card-header border-0 pb-0">
+            <h5 class="card-title">Выход из аккаунта</h5>
+            <p class="mb-0">Вы действительно хотите выйти?</p>
+          </div>
+          <div class="card-body">
+            <%= form_with url: rodauth.logout_path, method: :post, data: { turbo: false } do |form| %>
+              <% if rodauth.features.include?(:active_sessions) %>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <%= form.check_box rodauth.global_logout_param, id: "global-logout", class: "form-check-input" %>
+                    <%= form.label "global-logout", rodauth.global_logout_label, class: "form-check-label" %>
+                  </div>
+                </div>
+              <% end %>
+              <div class="mb-0">
+                <%= form.submit rodauth.logout_button, class: 'btn btn-warning w-100' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-  <% end %>
-  <div class="mb-3 input-group-lg">
-    <%= form.submit rodauth.logout_button, class: "btn btn-lg btn-warning w-100" %>
   </div>
-<% end %>
+</section>

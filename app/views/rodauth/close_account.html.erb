@@ -1,12 +1,48 @@
-<%= form_with url: rodauth.close_account_path, method: :post, data: { turbo: false } do |form| %>
-  <% if rodauth.close_account_requires_password? %>
-    <div class="mb-3 input-group-lg">
-      <%= form.label "password", rodauth.password_label, class: "form-label" %>
-      <%= form.password_field rodauth.password_param, value: "", id: "password", autocomplete: rodauth.password_field_autocomplete_value, required: true, class: "form-control #{"is-invalid" if rodauth.field_error(rodauth.password_param)}", aria: ({ invalid: true, describedby: "password_error_message" } if rodauth.field_error(rodauth.password_param)) %>
-      <%= content_tag(:span, rodauth.field_error(rodauth.password_param), class: "invalid-feedback", id: "password_error_message") if rodauth.field_error(rodauth.password_param) %>
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-5">
+        <div class="card w-100">
+          <div class="card-body">
+            <ul class="nav nav-tabs nav-pills nav-pills-soft flex-column fw-bold gap-2 border-0">
+              <li class="nav-item" data-bs-dismiss="offcanvas">
+                <%= link_to 'Изменить email', rodauth.change_login_path, class: 'nav-link d-flex mb-0' %>
+              </li>
+              <li class="nav-item" data-bs-dismiss="offcanvas">
+                <%= link_to 'Изменить пароль', rodauth.change_password_path, class: 'nav-link d-flex mb-0' %>
+              </li>
+              <li class="nav-item" data-bs-dismiss="offcanvas">
+                <%= link_to 'Закрыть аккаунт', rodauth.close_account_path, class: 'nav-link d-flex mb-0 active' %>
+              </li>
+              <li class="nav-item" data-bs-dismiss="offcanvas">
+                <%= link_to 'Выйти', rodauth.logout_path, class: 'nav-link d-flex mb-0' %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 vstack gap-4">
+        <div class="card">
+          <div class="card-header border-0 pb-0">
+            <h5 class="card-title">Закрыть аккаунт</h5>
+            <p class="mb-0">Вы действительно закрыть аккаунт?</p>
+          </div>
+          <div class="card-body">
+            <%= form_with url: rodauth.close_account_path, method: :post, data: { turbo: false } do |form| %>
+              <% if rodauth.close_account_requires_password? %>
+                <div class="mb-3">
+                  <%= form.label "password", rodauth.password_label, class: "form-label" %>
+                  <%= form.password_field rodauth.password_param, value: "", id: "password", autocomplete: rodauth.password_field_autocomplete_value, required: true, class: "form-control #{"is-invalid" if rodauth.field_error(rodauth.password_param)}", aria: ({ invalid: true, describedby: "password_error_message" } if rodauth.field_error(rodauth.password_param)) %>
+                  <%= content_tag(:span, rodauth.field_error(rodauth.password_param), class: "invalid-feedback", id: "password_error_message") if rodauth.field_error(rodauth.password_param) %>
+                </div>
+              <% end %>
+              <div class="mb-0">
+                <%= form.submit rodauth.close_account_button, class: "btn btn-danger w-100" %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-  <div class="mb-3 input-group-lg">
-    <%= form.submit rodauth.close_account_button, class: "btn btn-lg btn-danger w-100" %>
   </div>
-<% end %>
+</section>

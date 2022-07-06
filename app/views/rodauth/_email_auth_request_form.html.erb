@@ -1,6 +1,6 @@
 <%= form_with url: rodauth.email_auth_request_path, method: :post, data: { turbo: false } do |form| %>
   <%= form.hidden_field rodauth.login_param, value: params[rodauth.login_param] %>
-  <div class="mb-3 input-group-lg">
+  <div class="mb-3 input-group">
     <%= form.submit rodauth.email_auth_request_button, class: "btn btn-lg btn-primary w-100" %>
   </div>
 <% end %>

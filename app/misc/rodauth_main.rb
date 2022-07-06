@@ -90,11 +90,11 @@ class RodauthMain < Rodauth::Rails::Auth
     # login_does_not_meet_requirements_message { "invalid email#{", #{login_requirement_message}" if login_requirement_message}" }
 
     # Изменить минимальное количество символов пароля, необходимое при создании учетной записи.
-    # password_minimum_length 8
+    password_minimum_length 8
 
     # ==> Запомнить функцию
     # Запомнить всех зарегистрированных пользователей.
-    after_login { remember_login }
+    # after_login { remember_login }
 
     # Или запомните только тех пользователей, которые установили флажок «Запомнить меня» при входе в систему.
     # after_login { remember_login if param_or_nil("remember") }
@@ -151,8 +151,7 @@ class RodauthMain < Rodauth::Rails::Auth
     # verify_login_change_deadline_interval Hash[days: 2]
     # remember_deadline_interval Hash[days: 30]
 
-    login_label 'Email'
-    password_label 'Пароль'
+    
     create_account_route 'registration'
   end
 end

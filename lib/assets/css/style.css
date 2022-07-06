@@ -16850,3 +16850,7 @@ html[data-theme=dark] .light-mode-item {
 }
 /*User CSS*/
 /*# sourceMappingURL=style.css.map */
+header.fixed-top + main {
+  padding-top: calc(0rem + 56px);
+  margin-bottom: 1.5rem;
+}

@@ -1,0 +1,45 @@
+<header class="navbar-light fixed-top header-static bg-mode shadow">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <%= link_to  root_path, class: 'navbar-brand' do %>
+        <%= image_tag 'logo/agova.png', class: 'light-mode-item navbar-brand-item' %>
+        <%= image_tag 'logo/agova.png', class: 'dark-mode-item navbar-brand-item' %>
+      <% end %>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav navbar-nav-scroll ">
+          <li class="nav-item">
+            <%= link_to  'Предложения', gigs_path, class: 'nav-link' %>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to  'Товарищества', brands_path, class: 'nav-link' %>
+          </li>
+        </ul>
+      </div>
+      <ul class="nav flex-nowrap align-items-center list-unstyled">
+        <li class="nav-item ms-2">
+          <button class="navbar-toggler ms-auto icon-md btn btn-light p-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-animation">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </li>
+        <% if rodauth.logged_in? %>
+          <li class="nav-item ms-2">
+            <%= link_to dashboard_path, class: 'nav-link btn icon-md p-0' do %>
+              <%= image_tag 'avatar/avatar.png', class: 'avatar-img rounded-circle' %>
+            <% end %>
+          </li>
+        <% else %>
+          <li class="nav-item ms-2">
+            <%= link_to rodauth.login_path, class: 'nav-link btn icon-md p-0' do %>
+              <%= image_tag 'avatar/avatar.png', class: 'avatar-img rounded-circle' %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>

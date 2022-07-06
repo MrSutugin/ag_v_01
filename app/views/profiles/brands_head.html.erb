@@ -1,0 +1,62 @@
+<section class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 mb-4">
+        <div class="card w-100">
+          <div class="card-body">
+            <ul class="nav nav-tabs nav-pills nav-pills-soft flex-column fw-bold gap-2 border-0">
+              <li class="nav-item" data-bs-dismiss="offcanvas">
+                <%= link_to  'Мой профиль', dashboard_path, class: 'nav-link d-flex mb-0' %>
+              </li>
+              <li class="nav-item" data-bs-dismiss="offcanvas">
+                <%= link_to  'Мои товарищества', dashboard_brands_path, class: 'nav-link d-flex mb-0 active' %>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 vstack gap-4">
+        <div class="card">
+          <div class="card-header border-0 pb-0">
+            <h4 class="card-title h5">
+              Мои товарищества
+            </h4>
+            <ul class="list-inline mb-0 mt-3">
+              <li class="list-inline-item me-4">
+                <i class="bi bi-plus-circle-dotted me-1"></i>
+                <%= link_to  'Создать', new_brand_path %>
+              </li>
+              <li class="list-inline-item me-4">
+                <i class="bi bi-search me-1"></i>
+                <%= link_to  'Найти', brands_path %>
+              </li>
+            </ul>
+          </div>
+          <div class="card-body">
+            <ul class="nav nav-tabs nav-bottom-line justify-content-center justify-content-md-start">
+              <li class="nav-item">
+                <%= link_to  'Участвую', dashboard_brands_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to  'Создал', dashboard_brands_owner_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to  'Председатель', dashboard_brands_head_path, class: 'nav-link active' %>
+              </li>
+            </ul>
+            
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="my-4 py-4 text-center">
+              <i class="display-1 text-muted bi bi-people"> </i>
+              <h4 class="mb-3 text-body h6">Ничего не найдено</h4>
+              <%= link_to  'Создать', new_brand_path, class: 'btn btn-primary-soft btn-sm' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
